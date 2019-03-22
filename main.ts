@@ -601,7 +601,24 @@ namespace mbit_小車類 {
         buf[4] = (off >> 8) & 0xff;
         pins.i2cWriteBuffer(PCA9685_ADD, buf);
     }
+function left_run(speed1: number) {
 
+        speed1 = speed1 * 18; // map 350 to 4096        
+        if (speed1 >= 4596) {
+            speed1 = 4595
+        }       
+        setPwm(12, 0, speed1);
+        setPwm(13, 0, 0);
+    }
+	function right_run(speed2: number) {
+
+        speed2 = speed2 * 18; // map 350 to 4096        
+        if (speed2 >= 4596) {
+            speed2 = 4595
+        }       
+        setPwm(14, 0, speed2);
+        setPwm(15, 0, 0);
+    }
 
     function Car_run(speed1: number, speed2: number) {
 
