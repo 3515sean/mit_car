@@ -605,10 +605,10 @@ namespace mbit_小車類 {
 
     function Car_run(speed1: number, speed2: number) {
 
-        speed1 = speed1 * 16; // map 350 to 4096
-        speed2 = speed2 * 16;
-        if (speed1 >= 4096) {
-            speed1 = 4095
+        speed1 = speed1 * 18; // map 350 to 4096
+        speed2 = speed2 * 18;
+        if (speed1 >= 4596) {
+            speed1 = 4595
         }
         if (speed1 <= 350) {
             speed1 = 350
@@ -642,8 +642,8 @@ namespace mbit_小車類 {
         if (speed1 <= 350) {
             speed1 = 350
         }
-        if (speed2 >= 4096) {
-            speed2 = 4095
+        if (speed2 >= 4596) {
+            speed2 = 4595
         }
         if (speed2 <= 350) {
             speed2 = 350
