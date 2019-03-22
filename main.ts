@@ -621,8 +621,8 @@ namespace mbit_小車類 {
         setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
 
-        setPwm(15, 0, speed2);
-        setPwm(14, 0, 0);
+        //setPwm(15, 0, speed2);
+       // setPwm(14, 0, 0);
         //pins.digitalWritePin(DigitalPin.P16, 1);
        // pins.analogWritePin(AnalogPin.P1, 1023-speed); //速度控制
 
