@@ -622,13 +622,13 @@ function left_run(speed1: number) {
 
     function Car_run(speed1: number, speed2: number) {
 
-        speed1 = speed1 * 18; // map 350 to 4096
-        speed2 = speed2 * 18;
-        if (speed1 >= 4596) {
-            speed1 = 4595
+        speed1 = speed1 * 20; // map 350 to 4096
+        speed2 = speed2 * 20;
+        if (speed1 >= 5400) {
+            speed1 = 5400
         }
-        if (speed2 >= 4596) {
-            speed2 = 4595
+        if (speed2 >= 5400) {
+            speed2 = 5400
         }
         setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
