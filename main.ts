@@ -601,23 +601,16 @@ namespace mbit_小車類 {
         buf[4] = (off >> 8) & 0xff;
         pins.i2cWriteBuffer(PCA9685_ADD, buf);
     }
-     function Car_run(speed1: number, speed2: number) {
+  function Car_run(speed1: number, speed2: number) {
 
         speed1 = speed1 * 16; // map 350 to 4096
         speed2 = speed2 * 16;
         if (speed1 >= 4096) {
             speed1 = 4095
         }
-        if (speed1 <= 350) {
-            speed1 = 350
-        }
         if (speed2 >= 4096) {
             speed2 = 4095
         }
-        if (speed2 <= 350) {
-            speed2 = 350
-        }
-
         setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
 
@@ -636,16 +629,10 @@ namespace mbit_小車類 {
         speed2 = speed2 * 16;
         if (speed1 >= 4096) {
             speed1 = 4095
-        }
-        if (speed1 <= 350) {
-            speed1 = 350
-        }
+        }        
         if (speed2 >= 4096) {
             speed2 = 4095
-        }
-        if (speed2 <= 350) {
-            speed2 = 350
-        }
+        }       
 
         setPwm(12, 0, 0);
         setPwm(13, 0, speed1);
@@ -666,14 +653,11 @@ namespace mbit_小車類 {
         speed2 = speed2 * 16;
         if (speed1 >= 4096) {
             speed1 = 4095
-        }        
+        }
         if (speed2 >= 4096) {
             speed2 = 4095
         }
-        if (speed2 <= 350) {
-            speed2 = 350
-        }
-        
+                
         setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
 
@@ -693,13 +677,10 @@ namespace mbit_小車類 {
         speed2 = speed2 * 16;
         if (speed1 >= 4096) {
             speed1 = 4095
-        }
-        if (speed1 <= 350) {
-            speed1 = 350
-        }
+        }        
         if (speed2 >= 4096) {
             speed2 = 4095
-        }       
+        }        
         
         //setPwm(12, 0, speed1);
         //setPwm(13, 0, 0);
@@ -733,18 +714,16 @@ namespace mbit_小車類 {
         if (speed1 >= 4096) {
             speed1 = 4095
         }
-        if (speed1 <= 350) {
-            speed1 = 350
-        }
         if (speed2 >= 4096) {
             speed2 = 4095
-        }              
+        }
+              
         
         setPwm(12, 0, 0);
         setPwm(13, 0, speed1);
 
-       // setPwm(15, 0, speed2);
-      //  setPwm(14, 0, 0);
+        setPwm(15, 0, speed2);
+        setPwm(14, 0, 0);
 
         //pins.analogWritePin(AnalogPin.P0, speed);
         //pins.digitalWritePin(DigitalPin.P8, 0);
@@ -759,14 +738,14 @@ namespace mbit_小車類 {
         speed2 = speed2 * 16;
         if (speed1 >= 4096) {
             speed1 = 4095
-        }
-        
+        }        
         if (speed2 >= 4096) {
             speed2 = 4095
         }
-        if (speed2 <= 350) {
-            speed2 = 350
-        }                
+          
+            
+        setPwm(12, 0, speed1);
+        setPwm(13, 0, 0);
 
         setPwm(15, 0, 0);
         setPwm(14, 0, speed2);
@@ -777,6 +756,7 @@ namespace mbit_小車類 {
         //pins.analogWritePin(AnalogPin.P1, 1023-speed);
 
     }
+
 
     /**
      * *****************************************************************
