@@ -651,8 +651,8 @@ namespace mbit_小車類 {
 
         speed1 = speed1 * 20; // map 350 to 4096
         speed2 = speed2 * 20;
-        if (speed1 >= 5100) {
-            speed1 = 5100
+        if (speed1 >= 4096) {
+            speed1 = 4095
         }
         if (speed2 >= 4096) {
             speed2 = 4095
@@ -678,8 +678,8 @@ namespace mbit_小車類 {
         if (speed1 >= 4096) {
             speed1 = 4095
         }        
-        if (speed2 >= 5100) {
-            speed2 = 5100
+        if (speed2 >= 4096) {
+            speed2 = 4095
         }        
         
         //setPwm(12, 0, speed1);
@@ -714,8 +714,8 @@ namespace mbit_小車類 {
         if (speed1 >= 4096) {
             speed1 = 4095
         }
-        if (speed2 >= 5100) {
-            speed2 =5100
+        if (speed2 >= 4096) {
+            speed2 =4095
         }
               
         
@@ -736,8 +736,8 @@ namespace mbit_小車類 {
 
         speed1 = speed1 * 20; // map 350 to 4096
         speed2 = speed2 * 16;
-        if (speed1 >= 5100) {
-            speed1 = 5100
+        if (speed1 >= 4096) {
+            speed1 = 4095
         }        
         if (speed2 >= 4096) {
             speed2 = 4095
