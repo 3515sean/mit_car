@@ -534,15 +534,15 @@ namespace mbit_小車類 {
         Car_Run = 1,
         //% blockId="Car_Back" block="後退"
         Car_Back = 2,
-        //% blockId="Car_Left" block="左轉"
+        //% blockId="Car_Left" block="左馬達-"
         Car_Left = 3,
-        //% blockId="Car_Right" block="右轉"
+        //% blockId="Car_Right" block="右馬達-"
         Car_Right = 4,
         //% blockId="Car_Stop" block="停止"
         Car_Stop = 5,
-        //% blockId="Car_SpinLeft" block="原地左旋"
+        //% blockId="Car_SpinLeft" block="左馬達+"
         Car_SpinLeft = 6,
-        //% blockId="Car_SpinRight" block="原地右旋"
+        //% blockId="Car_SpinRight" block="右馬達+"
         Car_SpinRight = 7
     }
 
@@ -601,25 +601,6 @@ namespace mbit_小車類 {
         buf[4] = (off >> 8) & 0xff;
         pins.i2cWriteBuffer(PCA9685_ADD, buf);
     }
-function left_run(speed1: number) {
-
-        speed1 = speed1 * 18; // map 350 to 4096        
-        if (speed1 >= 4596) {
-            speed1 = 4595
-        }       
-        setPwm(12, 0, speed1);
-        setPwm(13, 0, 0);
-    }
-	function right_run(speed2: number) {
-
-        speed2 = speed2 * 18; // map 350 to 4096        
-        if (speed2 >= 4596) {
-            speed2 = 4595
-        }       
-        setPwm(14, 0, speed2);
-        setPwm(15, 0, 0);
-    }
-
     function Car_run(speed1: number, speed2: number) {
 
         speed1 = speed1 * 20; // map 350 to 4096
@@ -669,22 +650,13 @@ function left_run(speed1: number) {
 
     function Car_left(speed1: number, speed2: number) {
 
-        speed1 = speed1 * 16; // map 350 to 4096
-        speed2 = speed2 * 16;
-        if (speed1 >= 4096) {
-            speed1 = 4095
-        }
-      
-        if (speed2 >= 4096) {
-            speed2 = 4095
-        }
-       
+        speed1 = speed1 * 20; // map 350 to 4096
+        if (speed1 >= 5400) {
+            speed1 = 5400
+        }     
         
         setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
-
-        setPwm(15, 0, speed2);
-        setPwm(14, 0, 0);
 
         //pins.analogWritePin(AnalogPin.P0, speed);
         //pins.digitalWritePin(DigitalPin.P8, 0);
@@ -694,21 +666,13 @@ function left_run(speed1: number) {
     }
 
     function Car_right(speed1: number, speed2: number) {
-
-        speed1 = speed1 * 16; // map 350 to 4096
-        speed2 = speed2 * 16;
-        if (speed1 >= 4096) {
-            speed1 = 4095
-        }
+	    
+        speed2 = speed2 * 20;
         
-        if (speed2 >= 4096) {
-            speed2 = 4095
+        if (speed2 >= 5400) {
+            speed2 = 5400
         }
-       
-        
-        setPwm(12, 0, speed1);
-        setPwm(13, 0, 0);
-
+               
         setPwm(15, 0, speed2);
         setPwm(14, 0, 0);
         //pins.digitalWritePin(DigitalPin.P0, 0);
@@ -733,44 +697,26 @@ function left_run(speed1: number) {
 
     function Car_spinleft(speed1: number, speed2: number) {
 
-        speed1 = speed1 * 16; // map 350 to 4096
-        speed2 = speed2 * 16;
-        if (speed1 >= 4096) {
-            speed1 = 4095
+        speed1 = speed1 * 20; // map 350 to 4096
+	    
+        if (speed1 >= 5400) {
+            speed1 = 5400
         }
-       
-        if (speed2 >= 4096) {
-            speed2 = 4095
-        }
-       
+               
         setPwm(12, 0, 0);
         setPwm(13, 0, speed1);
+        
 
-        setPwm(15, 0, speed2);
-        setPwm(14, 0, 0);
-
-        //pins.analogWritePin(AnalogPin.P0, speed);
-        //pins.digitalWritePin(DigitalPin.P8, 0);
-
-        //pins.digitalWritePin(DigitalPin.P16, 0);
-        //pins.analogWritePin(AnalogPin.P1, speed);
     } 
 
     function Car_spinright(speed1: number, speed2: number) {
-
-        speed1 = speed1 * 16; // map 350 to 4096
-        speed2 = speed2 * 16;
-        if (speed1 >= 4096) {
-            speed1 = 4095
+	    
+        speed2 = speed2 * 20;
+       
+        if (speed2 >= 5400) {
+            speed2 = 5400
         }
-        if (speed2 >= 4096) {
-            speed2 = 4095
-        }
-                   
-            
-        setPwm(12, 0, speed1);
-        setPwm(13, 0, 0);
-
+                 
         setPwm(15, 0, 0);
         setPwm(14, 0, speed2);
         //pins.analogWritePin(AnalogPin.P0, 1023-speed);
