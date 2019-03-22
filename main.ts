@@ -771,15 +771,10 @@ namespace mbit_小車類 {
         if (speed1 >= 4096) {
             speed1 = 4095
         }
-        if (speed1 <= 350) {
-            speed1 = 350
-        }
-        if (speed2 >= 4096) {
+                if (speed2 >= 4096) {
             speed2 = 4095
         }
-        if (speed2 <= 350) {
-            speed2 = 350
-        }    
+                   
             
         setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
