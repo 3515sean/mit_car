@@ -649,13 +649,15 @@ namespace mbit_小車類 {
 
     function Car_left(speed1: number, speed2: number) {
 
-        speed1 = speed1 * 16; // map 350 to 4096
+        // map 350 to 4096
         
         if (speed1 > 0 ) {
+		 speed1 = speed1 * 16;
 	    setPwm(12, 0, speed1);
             setPwm(13, 0, 0);
         }
         if (speed1 < 0) {
+		 speed1 = speed1 * -16;
 	    setPwm(12, 0, 0);
             setPwm(13, 0, speed1);
         }
