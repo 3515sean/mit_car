@@ -652,11 +652,11 @@ namespace mbit_小車類 {
         // map 350 to 4096
         
         if (speed1 > 0 ) {
-	    speed1 = speed1 * 16;
+	    speed1 = speed1 * 18;
 	    setPwm(12, 0, speed1);
             setPwm(13, 0, 0);
         }else if (speed1 < 0) {
-            speed1 = speed1 * -16;
+            speed1 = speed1 * -18;
 	    setPwm(12, 0, 0);
             setPwm(13, 0, speed1);
         }else{
