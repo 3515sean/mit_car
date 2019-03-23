@@ -534,15 +534,15 @@ namespace mbit_小車類 {
         Car_Run = 1,
         //% blockId="Car_Back" block="後退"
         Car_Back = 2,
-        //% blockId="Car_Left" block="左馬達-"
+        //% blockId="Car_Left" block="左馬達速度"
         Car_Left = 3,
-        //% blockId="Car_Right" block="右馬達-"
+        //% blockId="Car_Right" block="右馬達速度"
         Car_Right = 4,
         //% blockId="Car_Stop" block="停止"
         Car_Stop = 5,
-        //% blockId="Car_SpinLeft" block="左馬達+"
+        //% blockId="Car_SpinLeft" block="???"
         Car_SpinLeft = 6,
-        //% blockId="Car_SpinRight" block="右馬達+"
+        //% blockId="Car_SpinRight" block="???"
         Car_SpinRight = 7
     }
 
