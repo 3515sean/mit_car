@@ -652,16 +652,17 @@ namespace mbit_小車類 {
         // map 350 to 4096
         
         if (speed1 > 0 ) {
-		 speed1 = speed1 * 16;
+	    speed1 = speed1 * 16;
 	    setPwm(12, 0, speed1);
             setPwm(13, 0, 0);
-        }
-        if (speed1 < 0) {
-		 speed1 = speed1 * -16;
+        }else if (speed1 < 0) {
+            speed1 = speed1 * -16;
 	    setPwm(12, 0, 0);
             setPwm(13, 0, speed1);
-        }
-                
+        }else{
+	    setPwm(12, 0, 0);
+            setPwm(13, 0, 0);
+	}            
         
 
       
@@ -675,20 +676,21 @@ namespace mbit_小車類 {
 
     function Car_right(speed1: number, speed2: number) {
 
-        speed1 = speed1 * 16; // map 350 to 4096
-        speed2 = speed2 * 20;
-        if (speed1 >= 4096) {
-            speed1 = 4095
-        }        
-        if (speed2 >= 4096) {
-            speed2 = 4095
-        }        
+        // map 350 to 4096
+	    if (speed2 > 0 ) {
+	    speed2 = speed2 * 16;
+	    setPwm(15, 0, speed2);
+            setPwm(14, 0, 0);
+        }else if (speed2 < 0) {
+            speed2 = speed2 * -16;
+	    setPwm(15, 0, 0);
+            setPwm(14, 0, speed2);
+        }else{
+	    setPwm(15, 0, 0);
+            setPwm(14, 0, 0);
+	}            
         
-        //setPwm(12, 0, speed1);
-        //setPwm(13, 0, 0);
-
-        setPwm(15, 0, speed2);
-        setPwm(14, 0, 0);
+        
         //pins.digitalWritePin(DigitalPin.P0, 0);
         //pins.digitalWritePin(DigitalPin.P8, 0);
 
