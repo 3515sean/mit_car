@@ -574,7 +574,7 @@ namespace mbit_小車類 {
     function setFreq(freq: number): void {
         // Constrain the frequency
         let prescaleval = 25000000;
-        prescaleval /= 5100;
+        prescaleval /= 4096;
         prescaleval /= freq;
         prescaleval -= 1;
         let prescale = prescaleval; //Math.Floor(prescaleval + 0.5);
@@ -652,11 +652,11 @@ namespace mbit_小車類 {
         // map 350 to 4096
         
         if (speed1 > 0 ) {
-	    speed1 = speed1 * 18;
+	    speed1 = speed1 * 16;
 	    setPwm(12, 0, speed1);
             setPwm(13, 0, 0);
         }else if (speed1 < 0) {
-            speed1 = speed1 * -18;
+            speed1 = speed1 * -16;
 	    setPwm(12, 0, 0);
             setPwm(13, 0, speed1);
         }else{
