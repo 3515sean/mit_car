@@ -574,7 +574,7 @@ namespace mbit_小車類 {
     function setFreq(freq: number): void {
         // Constrain the frequency
         let prescaleval = 25000000;
-        prescaleval /= 4096;
+        prescaleval /= 5100;
         prescaleval /= freq;
         prescaleval -= 1;
         let prescale = prescaleval; //Math.Floor(prescaleval + 0.5);
@@ -588,7 +588,11 @@ namespace mbit_小車類 {
     }
 
     function setPwm(channel: number, on: number, off: number): void {
-        
+        if (channel < 0 || channel > 15)
+            return;
+        if (!initialized) {
+            initPCA9685();
+        }
         let buf = pins.createBuffer(5);
         buf[0] = LED0_ON_L + 4 * channel;
         buf[1] = on & 0xff;
