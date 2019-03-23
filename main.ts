@@ -588,11 +588,7 @@ namespace mbit_小車類 {
     }
 
     function setPwm(channel: number, on: number, off: number): void {
-        if (channel < 0 || channel > 15)
-            return;
-        if (!initialized) {
-            initPCA9685();
-        }
+        
         let buf = pins.createBuffer(5);
         buf[0] = LED0_ON_L + 4 * channel;
         buf[1] = on & 0xff;
